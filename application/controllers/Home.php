@@ -16,6 +16,7 @@ class Home extends CI_Controller{
     }
 
     public function index(){
+        $this->data['product'] = $this->work->calling("item");
         $this->commonview($this->data);
     }
     public function category(){

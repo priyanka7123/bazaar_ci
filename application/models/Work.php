@@ -8,7 +8,7 @@ class Work extends CI_Model{
               $data = $this->db->where($cond)->get($table);
         }
           return $data->result();
-
+          
     }
 
 

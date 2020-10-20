@@ -1,4 +1,4 @@
- <div class="list-group list-group-flash">
+ <div class="list-group list-group-flash mt-3">
             <?php
             foreach($category as $cat):
             ?>
