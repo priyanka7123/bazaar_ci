@@ -9,24 +9,25 @@
           <div class="col-lg-12">
           <div class="row">
              <div class="col-lg-3">
-                 <img src="https://www.ikea.com/in/en/images/products/millberget-swivel-chair-bomstad-black__0724719_PE734602_S5.JPG" class="w-100 border border-muted" alt="">
+                  <img src="<?= base_url('assets/'.$product->image);?>" class="w-100 border border-muted" alt="">
 
              </div>
-          </div>
                <div class="col-lg-9">
                 
             
                    <div class="card border-0">
                         <div class="card-body">
-                             <h2 class="lead">this is title</h2>
-                             <p class="small">furniture</p>
-                             <h2>rs 500/-</h2>
+                             <h2 class="lead"><?= $product->title;?></h2>
+                             <p class="small"><?= $product->category;?></p></p>
+                             <h2>Rs. <?= $product->discount_price;?> <small><del><?= $product->price;?>/-</del></small></h2>
+                             <a href="" class="btn btn-success">Add to cart</a>
                         </div>
                    </div>
                 </div>
           </div>
        </div>
      </div>
+          </div>
 
     </div>
 </div>

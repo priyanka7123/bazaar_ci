@@ -33,23 +33,32 @@
       $this->form_validation->set_rules("brand",'brand','required');
       $this->form_validation->set_rules("category",'category','required');
       $this->form_validation->set_rules("model",'model','required');
-    
+  
       $this->form_validation->set_rules("description",'description','required');
 
       if($this->form_validation->run()){
-          $data = [
-                   'title' => $_POST['title'],
-                   'price' => $_POST['price'],
-                   'discount_price' => $_POST['discount_price'],
-                   'brand' => $_POST['brand'],
-                   'model' => $_POST['model'],
-                   'category' => $_POST['category'],
-                   'image' => $_FILES['image']['name'],
-                   'description' => $_POST['description']
+               $config['upload_path']          = './assets/';
+                $config['allowed_types']        = 'gif|jpg|png';
+                $this->load->library("upload",$config);
 
-          ];
-         $this->db->insert("item",$data);
-         redirect('admin/index');
+                if(!$this->upload->do_upload("image")){
+                  $this->data['error'] = $this->upload->display_errors();
+                }else{
+                    $data = [
+                             'title' => $_POST['title'],
+                             'price' => $_POST['price'],
+                             'discount_price' => $_POST['discount_price'],
+                             'brand' => $_POST['brand'],
+                             'model' => $_POST['model'],
+                             'category' => $_POST['category'],
+                             'image' => $_FILES['image']['name'],
+                             'description' => $_POST['description']
+
+                    ];
+                   $this->db->insert("item",$data);
+                   redirect('admin/index');
+                }
+  
       }
        else{
              $this->load->view('admin/header');

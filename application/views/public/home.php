@@ -8,11 +8,13 @@
        <?php foreach($product as $item):?>
           <div class="col-lg-3">
               <div class="card border-0">
-                   <img src="https://www.ikea.com/in/en/images/products/millberget-swivel-chair-bomstad-black__0724719_PE734602_S5.JPG" class="w-100 border border-muted" alt="">
+              <a href="<?= base_url('home/product/'.$item->id);?>" class="stretched-link"></a>
+                  <img src="<?= base_url('assets/'.$item->image);?>" class="w-100 border border-muted" alt="">
+              </a>
                    <div class="card-body">
-                        <h2 class="lead">this is title</h2>
-                        <p class="small">furniture</p>
-                        <h2>rs 500/-</h2>
+                        <h2 class="lead"><?= $item->title;?></h2>
+                        <p class="small"><?= $item->category;?></p>
+                        <h2>Rs. <?= $item->discount_price;?><small><del><?= $item->price;?>/-</del></small></h2>
                    </div>
               </div>
           </div>

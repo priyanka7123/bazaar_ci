@@ -19,10 +19,12 @@ class Home extends CI_Controller{
         $this->data['product'] = $this->work->calling("item");
         $this->commonview($this->data);
     }
-    public function category(){
+    public function category($id){
+        $this->data['product'] = $this->work->calling("category",["id"=>$id]);
         $this->commonview($this->data);
     }
-    public function product(){
+    public function product($id){
+     $this->data['product'] = $this->db->where(["id"=>$id])->get("item")->row();
       $this->load->view('public/header');
       $this->load->view('public/product',$this->data);
       $this->load->view('public/footer');

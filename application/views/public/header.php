@@ -33,6 +33,12 @@
             <li class="nav-item">
               <a class="nav-link active" href="#" tabindex="-1" aria-disabled="true">carts <sup><span class="badge badge-danger badge-pill">0</span></sup></a>
             </li>
+
+              <?php if($this->session->userdata('admin')):?>
+            <li class="nav-item">
+              <a class="btn btn-danger" href="#" tabindex="-1" aria-disabled="true">Logout</a>
+            </li>
+              <?php endif; ?>
          </ul>
     
        </div>
